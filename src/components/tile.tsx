@@ -1,20 +1,15 @@
 import { useState } from "react";
 import "./tile.css";
 
-function Tile({changeTurn,turn,row,col}){
-    const [val, setval] = useState("");
+function Tile({changeTurn,row,col,val}){
 
+    
     function handleTileClick(){
-        if(turn){
-            setval('X');
-        }else{
-            setval('O');
-        }
         changeTurn(row,col);
     }
 
     return(
-        <button onClick={handleTileClick} className="tile" disabled={val!=""}>
+        <button onClick={handleTileClick} className="tile" disabled={val!=null}>
             {val}
         </button>
     )
